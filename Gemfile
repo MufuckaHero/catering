@@ -12,10 +12,20 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pg'
 gem 'puma'
 gem 'carrierwave'
-gem 'devise'
-gem 'activeadmin', github: 'activeadmin'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
+gem 'haml-rails'
+gem 'kaminari', '~> 0.16.3'
+
+gem 'devise'
+gem 'activeadmin', github: 'activeadmin'
+gem 'select2-rails'
+gem 'activeadmin-select2', github: 'mfairburn/activeadmin-select2'
+
+gem 'grape', '~> 0.13.0'
+gem 'grape_logging', '~> 1.1', '>= 1.1.2'
+gem 'grape-swagger', '~> 0.10.2'
+gem 'warden', '~> 1.2', '>= 1.2.3'
 
 group :development, :test do
   gem 'byebug'

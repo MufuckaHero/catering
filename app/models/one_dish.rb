@@ -1,0 +1,2 @@
+class OneDish < Dish
+end

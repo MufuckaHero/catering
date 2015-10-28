@@ -1,4 +1,4 @@
-ActiveAdmin.register Dish do
+ActiveAdmin.register Sprint do
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -13,7 +13,5 @@ ActiveAdmin.register Dish do
 #   permitted
 # end
 
-  permit_params :title, :sort_oder, :description, :price, :type, :children_ids, :category_id
 
-  config.sort_order = 'title_asc'
 end

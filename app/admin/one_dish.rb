@@ -1,4 +1,4 @@
-ActiveAdmin.register Category do
+ActiveAdmin.register OneDish, as: "Dish" do
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -13,14 +13,26 @@ ActiveAdmin.register Category do
 #   permitted
 # end
 
-  permit_params :title, :sort_order
+  permit_params :title, :sort_order, :description, :price, :type, :category_id
 
   index do
     selectable_column
     column :sort_order
     column :title
+    column :price
     column :updated_at
     actions
+  end
+
+  form do |f|
+    f.semantic_errors # shows errors on :base
+    f.inputs 'Dish' do
+      f.input :sort_order
+      f.input :title
+      f.input :price
+      f.input :description
+    end        
+    f.actions        
   end
 
   config.sort_order = 'sort_order_asc'
