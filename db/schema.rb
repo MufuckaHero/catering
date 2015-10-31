@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031001535) do
+ActiveRecord::Schema.define(version: 20151031023612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20151031001535) do
     t.integer  "quantity"
     t.integer  "person_id"
     t.integer  "daily_menu_id"
-    t.integer  "spriny_id"
+    t.integer  "sprint_id"
     t.integer  "dish_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20151031001535) do
   add_index "daily_rations", ["daily_menu_id"], name: "index_daily_rations_on_daily_menu_id", using: :btree
   add_index "daily_rations", ["dish_id"], name: "index_daily_rations_on_dish_id", using: :btree
   add_index "daily_rations", ["person_id"], name: "index_daily_rations_on_person_id", using: :btree
-  add_index "daily_rations", ["spriny_id"], name: "index_daily_rations_on_spriny_id", using: :btree
+  add_index "daily_rations", ["sprint_id"], name: "index_daily_rations_on_sprint_id", using: :btree
 
   create_table "dishes", force: :cascade do |t|
     t.string   "title"

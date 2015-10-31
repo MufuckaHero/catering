@@ -12,9 +12,6 @@ ActiveAdmin.register Sprint do
 #   permitted << :other if resource.something?
 #   permitted
 # end
-
-
-
   permit_params :title, :started_at, :finished_at, :aasm_state
 
   index do
@@ -24,6 +21,18 @@ ActiveAdmin.register Sprint do
     column :finished_at
     column "State", :aasm_state
     actions
+  end
+
+  form do |f|
+    f.inputs 'Sprint' do
+    # your form ...
+      f.input :title
+      f.input :started_at
+      f.input :finished_at
+      f.input :aasm_state, :input_html => { :disabled => true }, :label => 'Current status'
+      f.input :active_admin_requested_event, :label => 'Change status', :as => :select, :collection => f.object.aasm.events.map(&:name)
+    end
+    f.actions 
   end
 
   after_save do |sprint|
@@ -36,25 +45,4 @@ ActiveAdmin.register Sprint do
       sprint.send("#{safe_event}!")
     end
   end
-
-  form do |f|
-    f.inputs 'Sprint' do
-    # your form ...
-      f.input :title
-      f.input :started_at
-      f.input :finished_at
-
-
-
-    # display current status as disabled to avoid modifying it directly
-      f.input :aasm_state, :input_html => { :disabled => true }, :label => 'Current status'
-
-    # use the attr_accessor to pass the data
-      f.input :active_admin_requested_event, :label => 'Change status', :as => :select, :collection => f.object.aasm.events.map(&:name)
-    end
-    f.actions 
-
-  end
-
-
 end
