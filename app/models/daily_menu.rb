@@ -1,5 +1,5 @@
 class DailyMenu < ActiveRecord::Base
- before_save :delete_nil
+  before_save :delete_nil
 
   private
   def delete_nil

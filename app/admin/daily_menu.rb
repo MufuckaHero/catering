@@ -31,7 +31,7 @@ permit_params :day_number, :max_total, dish_ids: []
   form do |f|
     f.semantic_errors # shows errors on :base
     f.inputs 'DailyMenu' do
-      f.input :day_number,label: "Day", as: :select, :selected => 'Monday', collection: ['Monday', 'Tuersday']
+      f.input :day_number,label: "Day", as: :select, :selected => 'Monday', collection: ['Monday', 'Tuesday']
       f.input :max_total
       f.input :dish_ids, as: :select2_multiple, collection: Dish.all
     end        

@@ -21,6 +21,7 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'select2-rails'
 gem 'activeadmin-select2', github: 'mfairburn/activeadmin-select2'
+gem 'aasm'
 
 gem 'grape', '~> 0.13.0'
 gem 'grape_logging', '~> 1.1', '>= 1.1.2'
