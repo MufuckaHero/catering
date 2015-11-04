@@ -2,6 +2,8 @@ require 'action_dispatch/middleware/remote_ip.rb'
 
 module API
   module Version1
+    autoload :Sessions, 'version1/resources/sessions'
+    autoload :Sprints, 'version1/resources/sprints'
     autoload :DailyMenus, 'version1/resources/daily_menus'
 
     class Engine <  ::Grape::API
@@ -12,7 +14,9 @@ module API
       version 'v1', using: :path
 
       use ActionDispatch::RemoteIp
-
+     
+      mount API::Version1::Sessions
+      mount API::Version1::Sprints
       mount API::Version1::DailyMenus
       
       add_swagger_documentation base_path: "/api", hide_documentation_path: true, api_version: "v1"
