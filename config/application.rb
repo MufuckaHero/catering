@@ -13,6 +13,13 @@ module Catering
 
     config.active_record.raise_in_transactional_callbacks = true
 
+    config.middleware.insert_before 0, "Rack::Cors", debug: true, logger: (-> { Rails.logger }) do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :options, :delete]
+      end
+    end
+
     config.generators do |g|
       g.test_flamework :rspec
       g.stylesheets false

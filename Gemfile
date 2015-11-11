@@ -28,6 +28,8 @@ gem 'grape_logging', '~> 1.1', '>= 1.1.2'
 gem 'grape-swagger', '~> 0.10.2'
 gem 'warden', '~> 1.2', '>= 1.2.3'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

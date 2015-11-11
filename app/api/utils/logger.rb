@@ -15,7 +15,7 @@ module API
           path: request.path,
           params: request.params.to_hash,
           method: request.request_method,
-          token: env['HTTP_X_AUTH_TOKEN']
+          token: env['X-Auth-Token']
         }
       end
 
@@ -23,7 +23,7 @@ module API
         [
           "Completed #{@app_response.status} in #{total_runtime}ms",
           "(ActiveRecord: #{@db_duration.round(2)}ms)",
-          "token: #{env['HTTP_X_AUTH_TOKEN']}"
+          "token: #{env['X_AUTH_TOKEN']}"
         ].join(' ')
       end
 
