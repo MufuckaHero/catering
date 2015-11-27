@@ -1,4 +1,8 @@
 class Sprint < ActiveRecord::Base
+  validates :title, :aasm_state, presence: true
+
+  has_many :daily_rations
+
   include AASM
 
   attr_accessor :active_admin_requested_event

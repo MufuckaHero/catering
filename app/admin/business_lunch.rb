@@ -34,6 +34,7 @@ ActiveAdmin.register BusinessLunch do
       f.input :price
       f.input :description
       f.input :children_ids, as: :select2_multiple, collection: OneDish.all
+      f.input :category_id
     end        
     f.actions        
   end

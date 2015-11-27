@@ -5,6 +5,7 @@ module API
     autoload :Sessions, 'version1/resources/sessions'
     autoload :Sprints, 'version1/resources/sprints'
     autoload :DailyMenus, 'version1/resources/daily_menus'
+    autoload :Helpers, 'version1/resources/helpers'
 
     class Engine <  ::Grape::API
       format :json
@@ -14,6 +15,8 @@ module API
       version 'v1', using: :path
 
       use ActionDispatch::RemoteIp
+
+      helpers API::Version1::Helpers
      
       mount API::Version1::Sessions
       mount API::Version1::Sprints

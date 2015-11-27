@@ -4,6 +4,8 @@ class Person < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :daily_rations
+
   def ensure_authentication_token
     self.authentication_token ||= generate_authentication_token
   end

@@ -1,3 +1,5 @@
 class BusinessLunch < Dish
-  has_many :dishes
+  validates :sort_order, uniqueness: true
+
+  has_many :one_dishes
 end

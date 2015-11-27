@@ -23,7 +23,7 @@ module API
         [
           "Completed #{@app_response.status} in #{total_runtime}ms",
           "(ActiveRecord: #{@db_duration.round(2)}ms)",
-          "token: #{env['X_AUTH_TOKEN']}"
+          "token: #{env['X-Auth-Token']}"
         ].join(' ')
       end
 

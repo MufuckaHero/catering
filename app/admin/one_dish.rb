@@ -31,6 +31,7 @@ ActiveAdmin.register OneDish, as: "Dish" do
       f.input :title
       f.input :price
       f.input :description
+      f.input :category_id
     end        
     f.actions        
   end
