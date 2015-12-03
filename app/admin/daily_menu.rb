@@ -13,7 +13,7 @@ ActiveAdmin.register DailyMenu do
 #   permitted
 # end
 
-permit_params :day_number, :max_total, dish_ids: []
+permit_params :day_number, :max_total, :day_count, dish_ids: []
 
   index do
     selectable_column
@@ -31,10 +31,12 @@ permit_params :day_number, :max_total, dish_ids: []
   form do |f|
     f.semantic_errors # shows errors on :base
     f.inputs 'DailyMenu' do
-      f.input :day_number,label: "Day", as: :select, :selected => 'Monday', collection: ['Monday', 'Tuesday']
+      f.input :day_number,label: "Day", as: :select, :selected => 'Monday', collection: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
       f.input :max_total
-      f.input :dish_ids, as: :select2_multiple, collection: Dish.all
+      f.input :dish_ids, as: :select2_multiple, collection: Dish.all 
     end        
     f.actions        
   end
+
+  config.sort_order = 'day_count_asc'
 end
